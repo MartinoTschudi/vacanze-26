@@ -238,6 +238,7 @@ h3{font-size:11px;letter-spacing:.03em}
 
 </main>
 <script>
+const MYMAPS_ID='';  // ← paste Google My Maps id (the mid=... value) once imported
 const EM=p=>{const t=(p[2]+' '+p[4]).toLowerCase(),k=p[3];
 if(k==='air')return '✈️';if(k==='hotel')return '🏠';
 if(/boat|güigüí|guigui|tasarte/.test(t))return '⛵';if(/caterham|islacar/.test(t))return '🏎️';
@@ -309,13 +310,6 @@ addEventListener('scroll',()=>{document.getElementById('top').style.display=scro
 document.querySelectorAll('#e .list').forEach(ul=>{const n=ul.children.length;if(n<=5)return;ul.classList.add('top5');const b=document.createElement('button');b.className='more';b.textContent='Show all '+n+' ›';b.onclick=()=>{const c=ul.classList.toggle('top5');b.textContent=c?'Show all '+n+' ›':'Show top 5 ‹'};ul.after(b)});
 </script><script>
 (function(){const box=document.getElementById('gmb');if(!box)return;
-const mk=(label,cls,center,z)=>{const a=document.createElement('a');a.className='gm '+cls;a.target='_blank';a.textContent=label;a.href='https://www.google.com/maps/@'+center+','+z+'z';return a};
-// route link Portugal: Google directions through the driving waypoints
-const ptRoute='https://www.google.com/maps/dir/Faro+Airport/Praia+da+Marinha/Lagos/Ponta+da+Piedade/Sagres/Craveiral+Farmhouse+S%C3%A3o+Teot%C3%B3nio/Vila+Nova+de+Milfontes/Porto+Covo/Comporta/Rua+de+S%C3%A3o+Juli%C3%A3o+48+Lisboa';
-const gcList='https://www.google.com/maps/search/Salobre+Golf+Maspalomas/@27.9,-15.6,10z';
-const a1=document.createElement('a');a1.className='gm pa';a1.target='_blank';a1.textContent='🗺️ Portugal route in Google Maps';a1.href=ptRoute;
-const a2=document.createElement('a');a2.className='gm';a2.target='_blank';a2.textContent='🗺️ Gran Canaria in Google Maps';a2.href=gcList;
-const a3=document.createElement('a');a3.className='gm';a3.target='_blank';a3.textContent='📍 Villa · Salobre Homes';a3.href='https://www.google.com/maps/search/?api=1&query=Salobre+Homes+Calle+Swing+47+Maspalomas';
-box.append(a1,a2,a3);
-const tip=document.createElement('p');tip.className='tip';tip.style.marginTop='6px';tip.textContent='Tap any pin on the maps above → "Open in Google Maps" for turn-by-turn directions to that spot.';box.append(tip);})();
+if(MYMAPS_ID){box.innerHTML='<div class="card" style="margin-top:12px"><h3>Google My Maps · all POI, tap an icon for details</h3><iframe src="https://www.google.com/maps/d/embed?mid='+MYMAPS_ID+'&ehbc=f6f6f3" style="width:100%;height:480px;border:0;border-radius:10px" loading="lazy"></iframe><a class="gm" target="_blank" href="https://www.google.com/maps/d/viewer?mid='+MYMAPS_ID+'">Open in Google Maps app ›</a></div>';return;}
+box.innerHTML='<div class="card" style="margin-top:12px"><h3>Google My Maps · one-time import (2 min)</h3><p class="small">Download the KML files, then: <b>google.com/maps/d</b> → Create a new map → Import → choose <i>gran-canaria-poi.kml</i> (layer 1), Import again for <i>gran-canaria-loops.kml</i> (layer 2) and, for Plan A, <i>portugal-poi.kml</i> (layer 3). Share → "Anyone with the link" → copy the <b>mid=…</b> id from the URL and send it to me; I embed it here and it opens in the Google Maps app with all icons and details.</p><a class="gm" href="gran-canaria-poi.kml" download>⬇︎ gran-canaria-poi.kml · 23 pins</a><a class="gm" href="gran-canaria-loops.kml" download>⬇︎ gran-canaria-loops.kml · 2 routes</a><a class="gm pa" href="portugal-poi.kml" download>⬇︎ portugal-poi.kml · 18 pins</a></div>';})();
 </script></body></html>
