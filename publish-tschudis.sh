@@ -6,7 +6,7 @@ TMP="$(mktemp -d)"
 git clone -q --depth 1 https://github.com/MartinoTschudi/tschudis-website "$TMP/site"
 mkdir -p "$TMP/site/gc2026"
 cp "$SRC/index.html" "$SRC/map.html" "$SRC/poi.json" "$TMP/site/gc2026/"
-rm -f "$TMP/site/gc2026"/*.kml
+setopt +o nomatch 2>/dev/null; rm -f "$TMP/site/gc2026"/*.kml 2>/dev/null; true
 # make relative links inside gc2026 work when served under /gc2026/
 sed -i '' 's|href="./"|href="/gc2026/"|g' "$TMP/site/gc2026/map.html"
 # _redirects: /gc2026 -> /gc2026/ (Netlify serves folder index automatically)
