@@ -113,15 +113,15 @@ h3{font-size:11px;letter-spacing:.03em}
 }
 <style>
 @media(max-width:760px){
-#b table tr{display:grid;grid-template-columns:1fr auto auto auto;gap:4px 10px;align-items:center}
-#b table td{padding:0}#b table td:first-child{grid-column:1/-1;font-weight:600;margin-bottom:2px}
-#b table td.r{font-weight:500;font-size:13px;text-align:right!important}
-#b table td.r::before{content:attr(data-l);display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-#b table td.r[data-l="Mid"]{font-weight:700}
 }
 /* stays always open, with photo */
 .stay p,.stay .chips{display:block!important}.stay .chips{display:flex!important}.stay h4::after{content:none}.stay{cursor:default}
 .stay .ph{width:100%;height:170px;object-fit:cover;border-radius:8px;margin:8px 0 6px;display:block;background:#eee}
+<style>
+.btab{margin-top:8px}.brow{display:grid;grid-template-columns:1fr 240px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}.brow:last-child{border:0}
+.brow.tot{font-weight:700;border-top:2px solid var(--line)}.bv{display:grid;grid-template-columns:repeat(3,1fr);text-align:right}.bv span small{display:none}.bv .mid{font-weight:700}
+@media(max-width:760px){.brow{grid-template-columns:1fr;gap:4px}.bv{text-align:left;grid-template-columns:repeat(3,1fr);gap:6px}.bv span{background:#fafaf8;border:1px solid var(--line);border-radius:6px;padding:4px 8px}.bv span small{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.bv .mid{border-color:#c9c9c2}}
+.gm{display:inline-flex;align-items:center;gap:6px;margin:8px 8px 0 0;padding:8px 12px;border-radius:99px;background:var(--ink);color:#fff!important;font-size:13px;font-weight:600;text-decoration:none!important}
 </style></head><body>
 <header><h1>Portugal → Gran Canaria · 12–26 Oct 2026</h1><span class="sub">Marco · Paola · Tommaso (6 mo) · Business on miles · all prices CHF</span><div class="sw"><button id="swA" onclick="setPlan('A')">Portugal + Gran Canaria</button><button id="swB" onclick="setPlan('B')">Gran Canaria only</button></div></header>
 <nav><a href="#o">Overview</a><a href="#s" class="pa">Schedule</a><a href="#s2" class="pb">14 days</a><a href="#m">Map &amp; route</a><a href="#h">Stays</a><a href="#e">Gran Canaria</a><a href="#f">Flights &amp; cars</a><a href="#b">Budget</a></nav>
@@ -178,6 +178,7 @@ h3{font-size:11px;letter-spacing:.03em}
 <div class="pa"><div id="mapPT" class="map"></div></div>
 <div><div id="mapGC" class="map"></div></div>
 </div>
+<div id="gmb"></div>
 <div class="lg" style="margin-top:8px"><span>✈️ airport</span><span>🏠 stay</span><span>🏖️ beach / cove</span><span>🏊 natural pool</span><span>🌄 viewpoint / sunrise</span><span>🍽️ food</span><span>🏘️ village</span><span>🌿 nature</span><span>⛵ boat</span><span>🏎️ Caterham</span><span>🛍️ shopping</span><span class="pa">— solid line = real road route (OSRM)</span></div>
 <div class="grid g2 pa" style="margin-top:12px">
 <div class="card"><h3>Mon 12 · FAO → Marinha → Lagos → Sagres → Craveiral · 215 km</h3><ol class="rt"><li><span><b>A22</b> west → exit Lagoa → <b>Praia da Marinha</b> clifftop car park · 35 min</span></li>
@@ -223,27 +224,16 @@ h3{font-size:11px;letter-spacing:.03em}
 
 <section id="b"><h2><span class="n">7</span>Budget · CHF</h2>
 <div class="card pa">
-<div class="bar"><span style="width:9%;background:#2a78d6"></span><span style="width:15%;background:#159a68"></span><span style="width:39%;background:#eda100"></span><span style="width:8%;background:#eb6834"></span><span style="width:29%;background:#8a8a8a"></span></div>
-<div class="lg"><span><i class="dot" style="background:#2a78d6"></i>Flight taxes 600</span><span><i class="dot" style="background:#159a68"></i>Portugal stays 710</span><span><i class="dot" style="background:#eda100"></i>Salobre villa 2'600</span><span><i class="dot" style="background:#eb6834"></i>Cars, fuel, tolls 550</span><span><i class="dot" style="background:#8a8a8a"></i>Food, boat day, outings 1'900</span></div>
-<table><tr><th>Item</th><th class="r">Low</th><th class="r">Mid</th><th class="r">High</th></tr>
-<tr><td>Award taxes · 3 pax × 3 flights</td><td class="r" data-l="Low">400</td><td class="r" data-l="Mid">600</td><td class="r" data-l="High">700</td></tr>
-<tr><td>Craveiral 467 + Hygge 211 + parking ~30</td><td class="r" data-l="Low">710</td><td class="r" data-l="Mid">710</td><td class="r" data-l="High">750</td></tr>
-<tr><td>Salobre Homes 11 n (quoted 2'454) + pool heating</td><td class="r" data-l="Low">2'454</td><td class="r" data-l="Mid">2'600</td><td class="r" data-l="High">2'750</td></tr>
-<tr><td>Cars + fuel + tolls + Lisbon parking</td><td class="r" data-l="Low">400</td><td class="r" data-l="Mid">550</td><td class="r" data-l="High">700</td></tr>
-<tr><td>Food, restaurants, boat day, outings · 14 days</td><td class="r" data-l="Low">1'500</td><td class="r" data-l="Mid">1'900</td><td class="r" data-l="High">2'300</td></tr>
-<tr><td>Caterham day · IslaCar (est.)</td><td class="r" data-l="Low">140</td><td class="r" data-l="Mid">200</td><td class="r" data-l="High">240</td></tr>
-<tr><td><b>Total cash</b> · + ≈165k miles</td><td class="r" data-l="Low"><b>5'800</b></td><td class="r" data-l="Mid"><b>6'560</b></td><td class="r" data-l="High"><b>7'340</b></td></tr></table>
-<p class="small">Cash Business fares would be CHF 2'100–3'500 → miles worth ≈ CHF 2'500. Boat half-day shared with friends ≈ CHF 450 your half, included in outings.</p></div><div class="card pb">
-<div class="bar"><span style="width:6%;background:#2a78d6"></span><span style="width:53%;background:#eda100"></span><span style="width:8%;background:#eb6834"></span><span style="width:33%;background:#8a8a8a"></span></div>
+<div class="bar"><span style="width:9%;background:#2a78d6"></span><span style="width:11%;background:#159a68"></span><span style="width:40%;background:#eda100"></span><span style="width:8%;background:#eb6834"></span><span style="width:32%;background:#8a8a8a"></span></div>
+<div class="lg"><span><i class="dot" style="background:#2a78d6"></i>Flight taxes 600</span><span><i class="dot" style="background:#159a68"></i>Portugal stays 710</span><span><i class="dot" style="background:#eda100"></i>Salobre villa 2'600</span><span><i class="dot" style="background:#eb6834"></i>Cars, fuel, tolls 550</span><span><i class="dot" style="background:#8a8a8a"></i>Food, boat, Caterham, outings 2'100</span></div>
+<div class="btab"><div class="brow"><div class="bl">Award taxes · 3 pax × 3 flights</div><div class="bv"><span><small>Low</small>400</span><span class="mid"><small>Mid</small>600</span><span><small>High</small>700</span></div></div><div class="brow"><div class="bl">Craveiral 467 + Hygge 211 + parking ~30</div><div class="bv"><span><small>Low</small>710</span><span class="mid"><small>Mid</small>710</span><span><small>High</small>750</span></div></div><div class="brow"><div class="bl">Salobre Homes 11 n (quoted 2'454) + pool heating</div><div class="bv"><span><small>Low</small>2'454</span><span class="mid"><small>Mid</small>2'600</span><span><small>High</small>2'750</span></div></div><div class="brow"><div class="bl">Cars + fuel + tolls + Lisbon parking</div><div class="bv"><span><small>Low</small>400</span><span class="mid"><small>Mid</small>550</span><span><small>High</small>700</span></div></div><div class="brow"><div class="bl">Food, restaurants, boat day, outings · 14 days</div><div class="bv"><span><small>Low</small>1'500</span><span class="mid"><small>Mid</small>1'900</span><span><small>High</small>2'300</span></div></div><div class="brow"><div class="bl">Caterham day · IslaCar (est.)</div><div class="bv"><span><small>Low</small>140</span><span class="mid"><small>Mid</small>200</span><span><small>High</small>240</span></div></div><div class="brow tot"><div class="bl">Total cash · + ≈165k miles</div><div class="bv"><span><small>Low</small>5'800</span><span class="mid"><small>Mid</small>6'560</span><span><small>High</small>7'340</span></div></div></div>
+<p class="small">Cash Business fares would be CHF 2'100–3'500 → miles worth ≈ CHF 2'500.</p></div>
+<div class="card pb">
+<div class="bar"><span style="width:6%;background:#2a78d6"></span><span style="width:55%;background:#eda100"></span><span style="width:7%;background:#eb6834"></span><span style="width:32%;background:#8a8a8a"></span></div>
 <div class="lg"><span><i class="dot" style="background:#2a78d6"></i>Flight taxes 350</span><span><i class="dot" style="background:#eda100"></i>Salobre villa 14 n 3'350</span><span><i class="dot" style="background:#eb6834"></i>Car, fuel 400</span><span><i class="dot" style="background:#8a8a8a"></i>Food, boat, Caterham, outings 1'900</span></div>
-<table><tr><th>Item</th><th class="r">Low</th><th class="r">Mid</th><th class="r">High</th></tr>
-<tr><td>Award taxes · 3 pax × 2 flights</td><td class="r" data-l="Low">280</td><td class="r" data-l="Mid">350</td><td class="r" data-l="High">420</td></tr>
-<tr><td>Salobre Homes 14 n (quoted 3'200) + pool heating</td><td class="r" data-l="Low">3'200</td><td class="r" data-l="Mid">3'350</td><td class="r" data-l="High">3'500</td></tr>
-<tr><td>AutoReisen 14 d (€292 live) + fuel</td><td class="r" data-l="Low">350</td><td class="r" data-l="Mid">400</td><td class="r" data-l="High">450</td></tr>
-<tr><td>Food, restaurants, boat half-day, outings · 14 days</td><td class="r" data-l="Low">1'400</td><td class="r" data-l="Mid">1'700</td><td class="r" data-l="High">2'100</td></tr>
-<tr><td>Caterham day · IslaCar (est.)</td><td class="r" data-l="Low">140</td><td class="r" data-l="Mid">200</td><td class="r" data-l="High">240</td></tr>
-<tr><td><b>Total cash</b> · + ≈130k miles</td><td class="r" data-l="Low"><b>5'370</b></td><td class="r" data-l="Mid"><b>6'000</b></td><td class="r" data-l="High"><b>6'710</b></td></tr></table>
-<p class="small">vs Plan A mid CHF 6'560: ≈ CHF 550 and 35k miles saved; you pay for 3 extra villa nights but drop 3 Portugal hotel nights, the one-way car and one flight.</p></div></section>
+<div class="btab"><div class="brow"><div class="bl">Award taxes · 3 pax × 2 flights</div><div class="bv"><span><small>Low</small>280</span><span class="mid"><small>Mid</small>350</span><span><small>High</small>420</span></div></div><div class="brow"><div class="bl">Salobre Homes 14 n (quoted 3'200) + pool heating</div><div class="bv"><span><small>Low</small>3'200</span><span class="mid"><small>Mid</small>3'350</span><span><small>High</small>3'500</span></div></div><div class="brow"><div class="bl">AutoReisen 14 d (€292 live) + fuel</div><div class="bv"><span><small>Low</small>350</span><span class="mid"><small>Mid</small>400</span><span><small>High</small>450</span></div></div><div class="brow"><div class="bl">Food, restaurants, boat half-day, outings · 14 days</div><div class="bv"><span><small>Low</small>1'400</span><span class="mid"><small>Mid</small>1'700</span><span><small>High</small>2'100</span></div></div><div class="brow"><div class="bl">Caterham day · IslaCar (est.)</div><div class="bv"><span><small>Low</small>140</span><span class="mid"><small>Mid</small>200</span><span><small>High</small>240</span></div></div><div class="brow tot"><div class="bl">Total cash · + ≈130k miles</div><div class="bv"><span><small>Low</small>5'370</span><span class="mid"><small>Mid</small>6'000</span><span><small>High</small>6'710</span></div></div></div>
+<p class="small">vs Plan A mid CHF 6'560: ≈ CHF 550 and 35k miles saved.</p></div>
+</section>
 
 
 </main>
@@ -260,7 +250,8 @@ return k==='nat'?'🌿':'📍'};
 const C={air:'#2a78d6',hotel:'#eb6834',nat:'#1baf7a',town:'#eda100'};
 function mk(id,center,zoom,pts,route){const m=L.map(id).setView(center,zoom);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m);
-pts.forEach(p=>{const e=EM(p);L.marker([p[0],p[1]],{icon:L.divIcon({className:'emk',html:'<span>'+e+'</span>',iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-12]})}).addTo(m).bindPopup('<b>'+e+' '+p[2]+'</b><br>'+p[4]);});
+pts.forEach(p=>{const e=EM(p);L.marker([p[0],p[1]],{icon:L.divIcon({className:'emk',html:'<span>'+e+'</span>',iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-12]})}).addTo(m).bindPopup('<b>'+e+' '+p[2]+'</b><br>'+p[4]+'<br><a href="https://www.google.com/maps/search/?api=1&query='+p[0]+','+p[1]+'" target="_blank">Open in Google Maps ›</a>');});
+m.__pts=pts;
 if(route){const fb=L.polyline(route,{color:'#eb6834',weight:2,dashArray:'4 6'}).addTo(m);
 fetch('https://router.project-osrm.org/route/v1/driving/'+route.map(p=>p[1]+','+p[0]).join(';')+'?overview=full&geometries=geojson').then(r=>r.json()).then(j=>{if(!j.routes)return;m.removeLayer(fb);L.geoJSON(j.routes[0].geometry,{style:{color:'#eb6834',weight:4,opacity:.9}}).addTo(m);}).catch(()=>{});}
 return m;}
@@ -316,4 +307,15 @@ document.querySelectorAll('.ev').forEach(el=>el.addEventListener('click',e=>{if(
 addEventListener('scroll',()=>{document.getElementById('top').style.display=scrollY>600?'block':'none'});
 </script><script>
 document.querySelectorAll('#e .list').forEach(ul=>{const n=ul.children.length;if(n<=5)return;ul.classList.add('top5');const b=document.createElement('button');b.className='more';b.textContent='Show all '+n+' ›';b.onclick=()=>{const c=ul.classList.toggle('top5');b.textContent=c?'Show all '+n+' ›':'Show top 5 ‹'};ul.after(b)});
+</script><script>
+(function(){const box=document.getElementById('gmb');if(!box)return;
+const mk=(label,cls,center,z)=>{const a=document.createElement('a');a.className='gm '+cls;a.target='_blank';a.textContent=label;a.href='https://www.google.com/maps/@'+center+','+z+'z';return a};
+// route link Portugal: Google directions through the driving waypoints
+const ptRoute='https://www.google.com/maps/dir/Faro+Airport/Praia+da+Marinha/Lagos/Ponta+da+Piedade/Sagres/Craveiral+Farmhouse+S%C3%A3o+Teot%C3%B3nio/Vila+Nova+de+Milfontes/Porto+Covo/Comporta/Rua+de+S%C3%A3o+Juli%C3%A3o+48+Lisboa';
+const gcList='https://www.google.com/maps/search/Salobre+Golf+Maspalomas/@27.9,-15.6,10z';
+const a1=document.createElement('a');a1.className='gm pa';a1.target='_blank';a1.textContent='🗺️ Portugal route in Google Maps';a1.href=ptRoute;
+const a2=document.createElement('a');a2.className='gm';a2.target='_blank';a2.textContent='🗺️ Gran Canaria in Google Maps';a2.href=gcList;
+const a3=document.createElement('a');a3.className='gm';a3.target='_blank';a3.textContent='📍 Villa · Salobre Homes';a3.href='https://www.google.com/maps/search/?api=1&query=Salobre+Homes+Calle+Swing+47+Maspalomas';
+box.append(a1,a2,a3);
+const tip=document.createElement('p');tip.className='tip';tip.style.marginTop='6px';tip.textContent='Tap any pin on the maps above → "Open in Google Maps" for turn-by-turn directions to that spot.';box.append(tip);})();
 </script></body></html>
