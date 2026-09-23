@@ -248,7 +248,7 @@ if(/village|town|old town|porto|artenara|fataga|mogán|gáldar|teror|tejeda|agae
 return k==='nat'?'🌿':'📍'};
 const C={air:'#2a78d6',hotel:'#eb6834',nat:'#1baf7a',town:'#eda100'};
 function mk(id,center,zoom,pts,route){const m=L.map(id).setView(center,zoom);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m);
 pts.forEach(p=>{const e=EM(p);L.marker([p[0],p[1]],{icon:L.divIcon({className:'emk',html:'<span>'+e+'</span>',iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-12]})}).addTo(m).bindPopup('<b>'+e+' '+p[2]+'</b><br>'+p[4]+'<br><a href="https://www.google.com/maps/search/?api=1&query='+p[0]+','+p[1]+'" target="_blank">Apri in Google Maps ›</a>');});
 m.__pts=pts;
 if(route){const fb=L.polyline(route,{color:'#eb6834',weight:2,dashArray:'4 6'}).addTo(m);
