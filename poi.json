@@ -282,7 +282,7 @@
 "lat": 27.7562,
 "lon": -15.6844,
 "n": "Cofradía de Pescadores · Arguineguín",
-"d": "Pesce del giorno sul molo · al sale o alla piastra · pranzo 12:30–13",
+"d": "Ristorante e pescheria sul molo · pesce al sale o alla piastra · pescheria mar–sab 8–14",
 "c": "Food",
 "e": "🍽️",
 "r": "gc"
@@ -402,6 +402,15 @@
 "d": "Piscina a sfioro e letti balinesi · pranzo di riso (paella) 12:30–17 · mer 14",
 "c": "Beaches",
 "e": "🏖️",
+"r": "gc"
+},
+{
+"lat": 27.7975,
+"lon": -15.4636,
+"n": "Cofradía de Pescadores · Castillo del Romeral",
+"d": "Pesce al pubblico al mattino · bocinegro, medregal",
+"c": "Shopping",
+"e": "🐟",
 "r": "gc"
 }
 ]
